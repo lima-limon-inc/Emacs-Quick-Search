@@ -5,6 +5,9 @@ You can customize specific search engines for specific modes (and even set engin
 ## Demonstration:
 https://github.com/lima-limon-inc/Emacs-Quick-Search/assets/65001595/bfb221ca-06f8-4d91-9137-bf6155240305
 
+## Installation
+Simply copy `quick-search.el`'s source code into your init.el. After that, you can add the configuration code.
+
 ## Configuration
 There are 2 function that you need to set up in order to use `quick-search`
 
