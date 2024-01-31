@@ -133,10 +133,10 @@ buffer selection is used as the TERM."
      (list
       (quick-search/get-engine-from-name
        (completing-read "Which search engine: " engine-names nil t) valid-engines)
-      (read-string "What: ")
+      (read-string "What to search (default: buffer selection): ")
       )
      ))
-  (quick-search/search-on-browser where what)
+  (quick-search/search-on-browser where (if (equal what "") (buffer-substring (region-beginning) (region-end)) what))
   )
 
 (provide 'quick-search)
