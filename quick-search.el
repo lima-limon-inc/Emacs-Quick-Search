@@ -96,3 +96,23 @@ buffer selection is used as the TERM."
        )
     (shell-command (concat browser-name " " browser-argument full_query_url) nil nil)
     ))
+
+;; Quick search part
+(defun quick-search (where what)
+  "Opens the quicksearch menu so that you can pick and choose what and where to search"
+  (interactive
+   (let* (
+         (completion-ignore-case  t)
+         (valid-engines (get-valid-engines *search-engines* (which-active-modes)))
+         (engine-names (mapcar (lambda (engine)
+			    (get-engine-name engine))
+			 valid-engines))
+         )
+     (list
+      (get-engine-from-name
+       (completing-read "Which search engine: " engine-names nil t) valid-engines)
+      (read-string "What: ")
+      )
+     ))
+  (search-on-browser where what)
+  )
