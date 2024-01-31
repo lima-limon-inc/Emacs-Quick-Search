@@ -39,6 +39,20 @@
 (defun get-engine-modes (engine)
   (nth 2 engine))
 
+(defun check-if-engine-is-valid (engine modes)
+  (let (
+        (engine-modes (get-engine-modes engine))
+        )
+    (if (not engine-modes) 
+        't ;;If the engine has "nil" as modes, then that means it has to be turned on globally
+      (seq-intersection engine-modes modes)
+    )))
+
+(defun get-valid-engines (engines modes)
+  (seq-filter (lambda (engine)
+	  (check-if-engine-is-valid engine modes))
+	engines)
+  )
 
 
 
