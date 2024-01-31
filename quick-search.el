@@ -1,3 +1,22 @@
+;; Modes part
+
+;;; Taken from: https://stackoverflow.com/a/1511827
+(defun which-active-modes ()
+  "Returns all the modes (both major and minor) that are enabled in the current buffer."
+  (let ((active-modes))
+    ;;Adds all minor modes to the active-modes variable
+    (mapc (lambda (mode) (condition-case nil
+                             (if (and (symbolp mode) (symbol-value mode))
+                                 (add-to-list 'active-modes mode))
+                           (error nil) ))
+          minor-mode-list)
+
+    ;;Finally, we add the major mode
+    (add-to-list 'active-modes major-mode)
+
+    active-modes
+    ))
+
 
 ;; Search engine part
 (defvar *search-engines* nil)
