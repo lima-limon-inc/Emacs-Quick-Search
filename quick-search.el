@@ -1,4 +1,30 @@
-; Source: https://heemayl.net/posts/invoke-search-engine-on-browser-with-search-term-from-emacs/
+
+;; Search engine part
+(defvar *search-engines* nil)
+(setq *search-engines* nil)
+
+(defun add-search-engine (name search-query modes)
+  "Creates a 'Search engine object' that the quick-search function will take into account"
+  (let (
+        (new-engine (list name search-query modes))
+        )
+    (add-to-list '*search-engines* new-engine)
+    ))
+
+
+
+
+
+
+
+
+
+
+
+
+;; Browser part
+
+;;; Source: https://heemayl.net/posts/invoke-search-engine-on-browser-with-search-term-from-emacs/
 (defun search-on-browser (term)
   "Search TERM on preferred engine on browser.
 
