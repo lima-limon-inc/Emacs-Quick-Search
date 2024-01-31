@@ -66,6 +66,21 @@
 
 
 ;; Browser part
+(defvar *prefered-browser* nil)
+(setq *prefered-browser** nil)
+
+(defun set-prefered-browser (name arguments)
+  "Sets the prefered-browser variable. This variable is used to call the shell command that will open the browser itself"
+  (setq *prefered-browser* (cons name arguments)))
+
+(defun get-browser-name (browser)
+  "Sets the prefered-browser variable. This variable is used to call the shell command that will open the browser itself"
+  (car *prefered-browser*))
+
+(defun get-browser-argument (browser)
+  "Sets the prefered-browser variable. This variable is used to call the shell command that will open the browser itself"
+  (cdr *prefered-browser*))
+
 
 ;;; Source: https://heemayl.net/posts/invoke-search-engine-on-browser-with-search-term-from-emacs/
 (defun search-on-browser (term)
