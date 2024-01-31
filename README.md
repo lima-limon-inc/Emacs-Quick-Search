@@ -48,8 +48,6 @@ Simply call the `quick-search` function after having it configured (you need to 
 
 ; Enables C Plus Plus website for both C and C++ mode
 (quick-search/add-search-engine "C plus plus" "https://cplusplus.com/search.do?q=" '(c++-mode c-mode))
-
-(evil-leader/set-key "5" 'quick-search)
 ```
 
 You can even add the function to a keybinding.
