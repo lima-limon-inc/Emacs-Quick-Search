@@ -30,6 +30,14 @@
     (add-to-list '*search-engines* new-engine)
     ))
 
+(defun get-engine-name (engine)
+  (nth 0 engine))
+
+(defun get-engine-search (engine)
+  (nth 1 engine))
+
+(defun get-engine-modes (engine)
+  (nth 2 engine))
 
 
 
