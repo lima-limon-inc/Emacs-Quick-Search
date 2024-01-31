@@ -19,6 +19,7 @@
 
 
 ;; Search engine part
+
 (defvar *search-engines* nil)
 (setq *search-engines* nil)
 
@@ -81,26 +82,17 @@
   "Sets the prefered-browser variable. This variable is used to call the shell command that will open the browser itself"
   (cdr *prefered-browser*))
 
-
-;;; Source: https://heemayl.net/posts/invoke-search-engine-on-browser-with-search-term-from-emacs/
-(defun search-on-browser (term)
-  "Search TERM on preferred engine on browser.
+(defun search-on-browser (engine what)
+  "Search TERM on preferred engine on engine.
 
 If no search TERM is entered interactively, the current
 buffer selection is used as the TERM."
-
-  (interactive "sSearch term (default to selection): ")
-
-  (when (eq term "")
-    (setq term (buffer-substring (region-beginning) (region-end))))
-
-  (setq term (replace-regexp-in-string " +" "+" term))
-
-  (unless (boundp 'search-engine-query-url)
-    (setq search-engine-query-url "https://duckduckgo.com/?q="))
-
-  (unless (boundp 'browser-command)
-    (setq browser-command "firefox"))
-
-  (let ((full_query_url (concat search-engine-query-url "'" term "'")))
-    (shell-command (concat browser-command " '" full_query_url "'") nil nil)))
+  (let*
+      (
+       (browser-name (get-browser-name *prefered-browser*))
+       (browser-argument (get-browser-argument *prefered-browser*))
+       (engine-search (get-engine-search engine))
+       (full_query_url (concat engine-search "'" what "'"))
+       )
+    (shell-command (concat browser-name " " browser-argument full_query_url) nil nil)
+    ))
