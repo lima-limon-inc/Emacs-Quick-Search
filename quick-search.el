@@ -54,8 +54,10 @@
 	engines)
   )
 
-
-
+(defun get-engine-from-name (engine-name engines)
+  "Get the 'Engine Object', given the name"
+    (seq-find (lambda (engine) (equal engine-name (get-engine-name engine))) engines)
+    )
 
 
 
