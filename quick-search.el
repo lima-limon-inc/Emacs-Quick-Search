@@ -89,20 +89,20 @@
 
 
 ;; Browser part
-(defvar *quick-search/prefered-browser* nil)
-(setq *quick-search/prefered-browser* nil)
+(defvar *quick-search/preferred-browser* nil)
+(setq *quick-search/preferred-browser* nil)
 
-(defun quick-search/set-prefered-browser (name arguments)
-  "Sets the prefered-browser variable. This variable is used to call the shell command that will open the browser itself"
-  (setq *prefered-browser* (cons name arguments)))
+(defun quick-search/set-preferred-browser (name arguments)
+  "Sets the preferred-browser variable. This variable is used to call the shell command that will open the browser itself"
+  (setq *preferred-browser* (cons name arguments)))
 
 (defun quick-search/get-browser-name (browser)
-  "Sets the prefered-browser variable. This variable is used to call the shell command that will open the browser itself"
-  (car *prefered-browser*))
+  "Sets the preferred-browser variable. This variable is used to call the shell command that will open the browser itself"
+  (car *preferred-browser*))
 
 (defun quick-search/get-browser-argument (browser)
-  "Sets the prefered-browser variable. This variable is used to call the shell command that will open the browser itself"
-  (cdr *prefered-browser*))
+  "Sets the preferred-browser variable. This variable is used to call the shell command that will open the browser itself"
+  (cdr *preferred-browser*))
 
 (defun quick-search/search-on-browser (engine what)
   "Search TERM on preferred engine on engine.
@@ -111,8 +111,8 @@ If no search TERM is entered interactively, the current
 buffer selection is used as the TERM."
   (let*
       (
-       (browser-name (quick-search/get-browser-name *prefered-browser*))
-       (browser-argument (quick-search/get-browser-argument *prefered-browser*))
+       (browser-name (quick-search/get-browser-name *preferred-browser*))
+       (browser-argument (quick-search/get-browser-argument *preferred-browser*))
        (engine-search (quick-search/get-engine-search engine))
        (full_query_url (concat engine-search "'" what "'"))
        )
