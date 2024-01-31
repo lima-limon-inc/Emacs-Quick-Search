@@ -1,3 +1,30 @@
+;;; quick-search.el --- Package that makes searching parts of a buffer easier  -*- lexical-binding: t; -*-
+
+;; Copyright (C) 2024  
+
+;; Author:  Tomas Fabrizio Orsi <torsi@fi.uba.ar>
+;; Keywords: convenience, tools
+
+;; This program is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation, either version 3 of the License, or
+;; (at your option) any later version.
+
+;; This program is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+
+;; You should have received a copy of the GNU General Public License
+;; along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+;;; Commentary:
+
+;; The purpose of this package is to make searching things quicker, and easier providing a useful little prompt that opens your desired web browser with your selected search engine.
+;; Each engine can be customized to be shown on a per mode basis (or even globally)
+
+;;; Code:
+
 ;; Modes part
 
 ;;; Taken from: https://stackoverflow.com/a/1511827
@@ -116,3 +143,7 @@ buffer selection is used as the TERM."
      ))
   (search-on-browser where what)
   )
+
+
+(provide 'quick-search)
+;;; quick-search.el ends here
