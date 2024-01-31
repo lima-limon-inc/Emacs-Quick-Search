@@ -51,6 +51,16 @@ Simply call the `quick-search` function after having it configured (you need to 
 
 (evil-leader/set-key "5" 'quick-search)
 ```
+
+You can even add the function to a keybinding.
+```elisp
+(global-set-key "\C-c\C-s" 'quick-search)
+```
+
+evil-leader users can also do the following:
+```elisp
+(evil-leader/set-key "s" 'quick-search)
+```
 ## Credits
 - Thanks to @heemayl for the original foundation. Check out their [website](https://heemayl.net/)
 - Thanks to Trey Jackson for [this](https://stackoverflow.com/a/1511827) stackoverflow answer. Check out their [website](http://trey-jackson.blogspot.com/). If anyone can find his GitHub profile, please make a PR.
