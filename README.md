@@ -5,6 +5,9 @@ You can customize specific search engines for specific modes (and even set engin
 ## Demonstration:
 https://github.com/lima-limon-inc/Emacs-Quick-Search/assets/65001595/bfb221ca-06f8-4d91-9137-bf6155240305
 
+## Installation
+Simply copy `quick-search.el`'s source code into your init.el. After that, you can add the configuration code.
+
 ## Configuration
 There are 2 function that you need to set up in order to use `quick-search`
 
@@ -48,6 +51,9 @@ Simply call the `quick-search` function after having it configured (you need to 
 
 ; Enables C Plus Plus website for both C and C++ mode
 (quick-search/add-search-engine "C plus plus" "https://cplusplus.com/search.do?q=" '(c++-mode c-mode))
+
+; Enables oxford dictionary for "Writing" modes
+(quick-search/add-search-engine "Oxford Dictionary" "https://www.oxfordlearnersdictionaries.com/definition/english/" '(org-mode latex-mode LaTeX-mode tex-mode markdown-mode))
 ```
 
 You can even add the function to a keybinding.
