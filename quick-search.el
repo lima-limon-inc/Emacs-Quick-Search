@@ -68,6 +68,7 @@
   (nth 2 engine))
 
 (defun quick-search/check-if-engine-is-valid (engine modes)
+  "Given an engine and a list of active modes, returns whether it is valid to show the engine or not."
   (let (
         (engine-modes (quick-search/get-engine-modes engine))
         )
@@ -77,6 +78,7 @@
     )))
 
 (defun quick-search/get-valid-engines (engines modes)
+  "Given a list of engines and active modes, returns a sequence of all the valid engines"
   (seq-filter (lambda (engine)
 	  (quick-search/check-if-engine-is-valid engine modes))
 	engines)
@@ -97,18 +99,16 @@
   (setq *preferred-browser* (cons name arguments)))
 
 (defun quick-search/get-browser-name (browser)
-  "Sets the preferred-browser variable. This variable is used to call the shell command that will open the browser itself"
   (car *preferred-browser*))
 
 (defun quick-search/get-browser-argument (browser)
-  "Sets the preferred-browser variable. This variable is used to call the shell command that will open the browser itself"
   (cdr *preferred-browser*))
 
 (defun quick-search/search-on-browser (engine what)
-  "Search TERM on preferred engine on engine.
+  "Search 'what' on preferred engine.
 
-If no search TERM is entered interactively, the current
-buffer selection is used as the TERM."
+If nothing is entered interactively, the current
+buffer selection is used as the 'what'."
   (let*
       (
        (browser-name (quick-search/get-browser-name *preferred-browser*))
