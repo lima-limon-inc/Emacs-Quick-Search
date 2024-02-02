@@ -136,7 +136,13 @@ buffer selection is used as the 'what'."
       (read-string "What to search (default: buffer selection): ")
       )
      ))
-  (quick-search/search-on-browser where (if (equal what "") (buffer-substring (region-beginning) (region-end)) what))
+  (let (
+        ;; The default search value is what is being selected with the buffer.
+        ;; It is quoted so that it is only evaluated if it is used
+        (default-search '(buffer-substring (region-beginning) (region-end)))
+        )
+    (quick-search/search-on-browser where (if (equal what "") (eval default-search) what))
+    )
   )
 
 (provide 'quick-search)
