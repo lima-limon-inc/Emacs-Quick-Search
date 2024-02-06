@@ -116,7 +116,7 @@ buffer selection is used as the 'what'."
        (engine-search (quick-search/get-engine-search engine))
        (full_query_url (concat engine-search "'" what "'"))
        )
-    (shell-command (concat browser-name " " browser-argument full_query_url) nil nil)
+    (async-shell-command (concat browser-name " " browser-argument full_query_url) nil nil)
     ))
 
 ;; Quick search part
