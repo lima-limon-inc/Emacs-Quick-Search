@@ -54,6 +54,9 @@ Simply call the `quick-search` function after having it configured (you need to 
 
 ; Enables oxford dictionary for "Writing" modes
 (quick-search/add-search-engine "Oxford Dictionary" "https://www.oxfordlearnersdictionaries.com/definition/english/" '(org-mode latex-mode LaTeX-mode tex-mode markdown-mode))
+
+; Disable the async shell command window. Source: https://emacs.stackexchange.com/a/58341/39379
+(add-to-list 'display-buffer-alist '("*Async Shell Command*" display-buffer-no-window (nil)))
 ```
 
 You can even add the function to a keybinding.
@@ -68,6 +71,7 @@ evil-leader users can also do the following:
 ## Credits
 - Thanks to @heemayl for the original foundation. Check out their [website](https://heemayl.net/)
 - Thanks to Trey Jackson for [this](https://stackoverflow.com/a/1511827) stackoverflow answer. Check out their [website](http://trey-jackson.blogspot.com/). If anyone can find his GitHub profile, please make a PR.
+- Thank you NickD for [this](https://emacs.stackexchange.com/a/58341/39379) stackoverflow answer. 
 
 ## Disclaimer
 I am not affiliated with any of the search engines/browsers mentioned. Other options are available 
